@@ -1,4 +1,4 @@
-# information-seeking-cqa
+# Query-Expansion-Questions
 
 
 1. setup virtual environment
