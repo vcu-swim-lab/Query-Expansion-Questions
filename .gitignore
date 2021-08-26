@@ -1,0 +1,13 @@
+# information-seeking-cqa
+venv
+venv/*
+.idea
+.idea/*
+dataset
+dataset/*
+*.pyc
+.vector_cache*
+.vector_cache/*
+embeddings*
+embeddings/*
+*__init__.*
