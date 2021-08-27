@@ -1,5 +1,5 @@
 MODEL_SCRIPT_DIR=models
-TEST_SCRIPT_DIR=tests
+TEST_SCRIPT_DIR=scripts
 EMB_DIR=embeddings
 DATASET_DIR=dataset
 RESULT_DIR=outputs
