@@ -4,6 +4,8 @@ In the following, we briefly describe the different components that are included
 ## Project Structure
 The project includes the following files and folders:
 
+  - __/annotation__: A folder that contains the annotation of 200 queries
+	  - annotated_queries.csv: CSV file that 200 annotated queries with facets and clarification questions
   - __/dataset__: A folder that contains inputs that are used for the experiments
 	  - gen-queries.csv: CSV file that 5121 queries with regarding clarification questions
 	  - template.csv: 16 clarification questions and their common answers
