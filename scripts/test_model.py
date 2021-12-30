@@ -29,6 +29,7 @@ def parse_args():
     parser.add_argument('--n-epochs', help='Number of epochs', default=10, type=int)
     parser.add_argument('--batch-size', help='Batch size', type=int, default=64)
     parser.add_argument('--filler-size', help='Filler size', default='2 3')
+    parser.add_argument('--test', help='Test size', type=int, default=20)
     return parser.parse_args()
 
 
@@ -39,6 +40,7 @@ dataset_path = args.dataset
 embedding_path = args.embeddings
 models_path = args.models
 outputs_path = args.results
+test_size = args.test
 
 N_EPOCH = args.n_epochs
 FILTER_SIZES = [int(x) for x in args.filler_size.split()]
@@ -69,7 +71,8 @@ def read_w2v_model(path_in):
 
 w2v_model = read_w2v_model(vector_path)
 train_loader, test_loader, classes, train_dataset, test_dataset = ds.get_dataset(w2v_model.vocab, template_path,
-                                                                                 all_dataset_path, test_dataset_path)
+                                                                                 all_dataset_path, test_dataset_path,
+                                                                                 test_size)
 
 print(len(train_loader))
 print(len(test_loader))
@@ -241,4 +244,3 @@ for epoch in range(N_EPOCH):
     print(f'\t Train Loss: {train_loss:.3f} |  Train Acc: {train_acc:.2f}%')
     evaluate(net, test_loader, save_results=False)
 evaluate(net, test_loader, save_results=True)
-

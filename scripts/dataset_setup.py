@@ -21,7 +21,7 @@ class TDataset:
         self.cq_id = int(cq_id)
 
 
-def get_dataset(word2index, template_path, dataset_path, test_dataset_path):
+def get_dataset(word2index, template_path, dataset_path, test_dataset_path, test_size):
     exclude_set = []
     template_q = {}
     template_a = {}
@@ -66,7 +66,8 @@ def get_dataset(word2index, template_path, dataset_path, test_dataset_path):
                 if template in exclude_set:
                     continue
                 if (template_q.get(template) is not None) and (int(cq_t[i + 1]) == 1) and (template in classes):
-                    ret_dataset.append(TDataset(query, template_q.get(template), template_a.get(template), 1, int(i + 1)))
+                    ret_dataset.append(
+                        TDataset(query, template_q.get(template), template_a.get(template), 1, int(i + 1)))
 
                     if template not in data_counter_p:
                         data_counter_p[template] = 1
@@ -76,7 +77,8 @@ def get_dataset(word2index, template_path, dataset_path, test_dataset_path):
                         p_count = p_count + 1
 
                 else:
-                    ret_dataset.append(TDataset(query, template_q.get(template), template_a.get(template), 0, int(i + 1)))
+                    ret_dataset.append(
+                        TDataset(query, template_q.get(template), template_a.get(template), 0, int(i + 1)))
 
                     if template not in data_counter_n:
                         data_counter_n[template] = 1
@@ -96,6 +98,10 @@ def get_dataset(word2index, template_path, dataset_path, test_dataset_path):
         for row in csv_reader:
             test_queries.append(row[0])
 
+    # test = 20%, so total 40
+    print("total seed test queries", len(test_queries))
+    assert test_size * 2 == len(test_queries)
+
     train = []
     test = []
     with open(dataset_path) as csv_file:
@@ -106,13 +112,14 @@ def get_dataset(word2index, template_path, dataset_path, test_dataset_path):
                 test.append(row)
             else:
                 train.append(row)
-    print(len(train), len(test))
+
+    print("test length: ", len(test))
 
     train_dataset = build_dataset(train)
-    print("train len", len(train_dataset))
+    # print("train len", len(train_dataset))
 
     test_dataset = build_dataset(test)
-    print("test len", len(test_dataset))
+    print("test dataset length", len(test_dataset))
 
     train_dataset = np.array(train_dataset)
     np.random.shuffle(train_dataset)

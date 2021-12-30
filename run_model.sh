@@ -15,3 +15,4 @@ python $TEST_SCRIPT_DIR/test_model.py \
         --batch-size 64 \
         --n-epochs 10 \
         --filler-size '2 3' \
+        --test 20 \
