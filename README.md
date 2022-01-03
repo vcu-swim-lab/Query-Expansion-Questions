@@ -9,7 +9,7 @@ The project includes the following files and folders:
   - __/dataset__: A folder that contains inputs that are used for the experiments
 	  - gen-queries.csv: CSV file that 5121 queries with regarding clarification questions
 	  - template.csv: 16 clarification questions and their common answers
-	  - test_dataset.csv: the test queries from original 200 queries
+	  - test_dataset.csv: the 40 test queries from original 200 queries (20%)
   - __/embeddings__: A folder that contains the embeddings we have used
   - __/outputs__: A folder where outputs will be saved
   - __/models__: Contains the scripts for running the experiment
