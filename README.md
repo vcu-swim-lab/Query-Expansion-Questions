@@ -35,3 +35,22 @@ Step 1: Install software requirements following the above instructions.
 Step 2: Update the filepaths and parameters in *run_main.sh*
 
 Step 3: `./run_model.sh`
+
+## Paper link: 
+
+https://doi.org/10.1016/j.infsof.2022.107021
+
+## Citation:
+
+```
+@article{IMRAN2022107021,
+	title = {Using clarification questions to improve software developers’ Web search},
+	journal = {Information and Software Technology},
+	pages = {107021},
+	year = {2022},
+	issn = {0950-5849},
+	doi = {https://doi.org/10.1016/j.infsof.2022.107021},
+	url = {https://www.sciencedirect.com/science/article/pii/S0950584922001434},
+	author = {Mia Mohammad Imran and Kostadin Damevski},
+}
+```
